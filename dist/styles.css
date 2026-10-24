@@ -6,3 +6,5 @@
 .post.awaiting-reveal{opacity:0;transform:translateY(26px);animation:none!important}.post.reveal-in{animation:reveal .7s both}@media(prefers-reduced-motion:reduce){.post.awaiting-reveal{opacity:1;transform:none}}
 
 [hidden]{display:none!important}
+
+@media(max-width:380px){.header .nav-cta{display:none}.menu-toggle{margin-left:auto}.hero h1{font-size:44px}.post-meta{font-size:7px;letter-spacing:1px}}

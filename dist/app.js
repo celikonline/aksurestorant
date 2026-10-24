@@ -21,6 +21,9 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click'
 document.querySelectorAll('[data-story]').forEach(b=>b.addEventListener('click',()=>{filter(b.dataset.story);document.querySelector('#akis').scrollIntoView({behavior:'smooth'})}));
 loadMore.addEventListener('click',addPosts);
 new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&visible<activePosts.length)addPosts()},{rootMargin:'150px'}).observe(document.querySelector('#load-zone'));
+let scrollQueued=false;
+function fillVisibleFlow(){scrollQueued=false;if(visible<activePosts.length&&document.querySelector('#load-zone').getBoundingClientRect().top<innerHeight+150){addPosts();requestAnimationFrame(fillVisibleFlow)}}
+window.addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimationFrame(fillVisibleFlow)}},{passive:true});
 function openPost(index){modalIndex=(index+posts.length)%posts.length;const p=posts[modalIndex];document.querySelector('#modal-image').src=`assets/post-${p.id}.jpg`;document.querySelector('#modal-image').alt=p.title;document.querySelector('#modal-title').textContent=p.title;document.querySelector('#modal-category').textContent=p.category;document.querySelector('#modal-caption').textContent=p.caption;document.querySelector('#modal-link').href=`https://www.instagram.com/reel/${p.code}/`;document.querySelector('#modal-count').textContent=`${modalIndex+1} / ${posts.length}`;if(!dialog.open){dialog.showModal();document.body.style.overflow='hidden'}}
 function closeModal(){dialog.close();document.body.style.overflow=''}
 document.querySelector('.close-modal').addEventListener('click',closeModal);dialog.addEventListener('close',()=>document.body.style.overflow='');dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});
