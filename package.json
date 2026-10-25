@@ -1,1 +1,1 @@
-{"name":"aksu-kasap-restaurant","version":"1.0.0","private":true,"scripts":{"dev":"node server.mjs","check":"node --check dist/app.js"}}
+{"name":"aksu-kasap-restaurant","version":"2.0.0","private":true,"scripts":{"dev":"node server.mjs","check":"node scripts/verify.mjs","build":"node scripts/verify.mjs"}}
