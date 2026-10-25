@@ -19,7 +19,7 @@ Gönderiler `dist/posts.js`, etkileşimler `dist/experience.js`, görsel yön `d
 
 ## Yayın
 
-Statik yayın klasörü `dist/`; Sites proje kimliği `.openai/hosting.json` içinde saklanır. Vercel için `vercel.json` hazırdır. Depo kökü ve `website/` kökü için ayrı yapılandırmalar bulunur; ayrıntılar üst klasördeki `VERCEL.md` dosyasındadır. Kullanıcı tercihiyle Vercel hesabına yayın yapılmaz.
+Statik yayın klasörü `dist/`; Sites proje kimliği `.openai/hosting.json` içinde saklanır. Vercel için depo kökündeki `vercel.json` hazırdır. GitHub deposunu Vercel'e aktarırken Root Directory alanını depo kökü (`.`) olarak bırakın. Ayrıntılar [VERCEL.md](VERCEL.md) dosyasındadır.
 
 Fiyat, telefon, rezervasyon sistemi veya kullanıcı yorumu uydurulmamıştır. İletişim için resmi Instagram hesabına, konum için Google Maps aramasına yönlendirilir.
 
